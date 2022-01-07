@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/css.css"/>
+    <meta charset="UTF-8">
+    <title>Spørreundersøkelse</title>
+</head>
+<body>
+
+<h1 class="overskrift"> Spørreundersøkelse </h1>
+
+<div id="hoved">
+
+    <div class="checkboxradio">
+        <h3>Ronaldo er bedre enn Messi</h3>
+        <label>
+            <input type="radio" name="oscar" value="Enig" id="enig1" checked> Enig
+        </label>
+        <label>
+            <input type="radio" name="oscar" value="Uenig" id="uenig1"> Uenig
+        </label>
+    </div>
+
+    <div class="checkboxradio">
+        <h3>Trening er morsomt</h3>
+        <label>
+            <input type="radio" name="oskar" value="Enig" id="enig2" checked> Enig
+        </label>
+        <label>
+            <input type="radio" name="oskar" value="Uenig" id="uenig2"> Uenig
+        </label>
+    </div>
+
+    <div class="checkboxradio">
+        <h3>IT er morsomt</h3>
+        <label>
+            <input type="radio" name="okser" value="Enig" id="enig3" checked> Enig
+        </label>
+        <label>
+            <input type="radio" name="okser" value="Uenig" id="uenig3"> Uenig
+        </label>
+    </div>
+
+    <div class="checkboxradio">
+        <h3>Innebandy er kjempe kult</h3>
+        <label>
+            <input type="radio" name="oksyr" value="Enig" id="enig4" checked> Enig
+        </label>
+        <label>
+            <input type="radio" name="oksyr" value="Uenig" id="uenig4"> Uenig
+        </label>
+    </div>
+
+</div>
+
+<div id="hoved">
+    <button id="btn">Svar</button>
+    <button id="btn1">Sjekk svar</button>
+</div>
+
+<div id="tekstResultat">
+    <h3 class="overskrift">Resultater fra spørreundersøkelsen:</h3>
+<br>
+    <p>Ronaldo er bedre enn Messi</p>
+    <div id="sparsmalResultat1"></div>
+<br>
+    <p>Trening er morsomt</p>
+    <div id="sparsmalResultat2"></div>
+<br>
+    <p>IT er morsomt</p>
+    <div id="sparsmalResultat3"></div>
+<br>
+    <p>Innebandy er kjempe kult</p>
+    <div id="sparsmalResultat4"></div>
+
+</div>
+
+<script>
+
+    let spm1 = document.querySelector("#enig1");
+    let spm2 = document.querySelector("#enig2");
+    let spm3 = document.querySelector("#enig3");
+    let spm4 = document.querySelector("#enig4");
+    let btn =  document.querySelector("#btn");
+    let btn1 = document.querySelector("#btn1");
+    let spm1svar = 0;
+    let spm2svar = 0;
+    let spm3svar = 0;
+    let spm4svar = 0;
+    let totalsvar = 0;
+
+    btn.addEventListener("click", sjekksvar);
+    btn1.addEventListener("click", totalsvarsjekk);
+
+    function sjekksvar() {
+        if (spm1.checked) {
+            spm1svar = spm1svar + 1;
+        }
+
+        if (spm2.checked) {
+            spm2svar = spm2svar + 1;
+        }
+
+        if (spm3.checked) {
+            spm3svar = spm3svar + 1;
+        }
+
+        if (spm4.checked) {
+            spm4svar = spm4svar + 1;
+        }
+    }
+
+    function totalsvarsjekk() {
+       totalsvar = totalsvar + 1;
+        document.getElementById("sparsmalResultat1").style.width = spm1svar/totalsvar*100+"%";
+        document.getElementById("sparsmalResultat2").style.width = spm2svar/totalsvar*100+"%";
+        document.getElementById("sparsmalResultat3").style.width = spm3svar/totalsvar*100+"%";
+        document.getElementById("sparsmalResultat4").style.width = spm4svar/totalsvar*100+"%";
+    }
+    document.getElementById("sparsmalResultat1").style.backgroundColor = "red";
+    document.getElementById("sparsmalResultat1").style.width = 0+"%";
+    document.getElementById("sparsmalResultat2").style.backgroundColor = "red";
+    document.getElementById("sparsmalResultat2").style.width = 0+"%";
+    document.getElementById("sparsmalResultat3").style.backgroundColor = "red";
+    document.getElementById("sparsmalResultat3").style.width = 0+"%";
+    document.getElementById("sparsmalResultat4").style.backgroundColor = "red";
+    document.getElementById("sparsmalResultat4").style.width = 0+"%";
+
+</script>
+
+</body>
+</html>
